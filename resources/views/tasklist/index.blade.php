@@ -5,13 +5,26 @@
     <h1>メッセージ一覧</h1>
 
     @if (count($viewpass) > 0)
-        <ul>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>タスク</th>
+                    <th>内容</th>
+                </tr>
+            </thead>
+            <tbody>
             @foreach ($viewpass as $message)
-                <li>{!! link_to_route('tasklist.show', $message->id, ['id' => $message->id]) !!} : {{ $message->status }} > {{ $message->content }}</li>
+                <tr>
+                    <td>{!! link_to_route('tasklist.show', $message->id, ['id' => $message->id]) !!}</td>
+                    <td>{{ $message->status }}</td>
+                    <td>{{ $message->content }}</td>
+                </tr>
             @endforeach
-        </ul>
+            </tbody>
+        </table>
     @endif
     
-    {!! link_to_route('tasklist.create', '新規メッセージの投稿') !!}
+    {!! link_to_route('tasklist.create', 'タスクの新規投稿', null, ['class' => 'btn btn-primary']) !!}
 
 @endsection
