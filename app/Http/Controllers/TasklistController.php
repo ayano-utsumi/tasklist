@@ -48,10 +48,12 @@ class TasklistController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
+            'status' => 'required',
             'content' => 'required',
         ]);
 
         $message = new Task;
+        $message->status = $request->status;
         $message->content = $request->content;
         $message->save();
 
@@ -99,10 +101,12 @@ class TasklistController extends Controller
     {
         
         $this->validate($request, [
+            'status' => 'required',
             'content' => 'required',
         ]);
 
         $message = Task::find($id);
+        $message->status = $request->status;
         $message->content = $request->content;
         $message->save();
 

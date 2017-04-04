@@ -4,7 +4,8 @@
 
     <h1>id = {{ $viewpass->id }} のメッセージ詳細ページ</h1>
 
-    <p>{{ $viewpass->content }}</p>
+    <p>ステータス: {{ $viewpass->status }}</p>
+    <p>内容：{{ $viewpass->content }}</p>
 
     {!! link_to_route('tasklist.edit', 'このタスク編集', ['id' => $viewpass->id]) !!}
     
