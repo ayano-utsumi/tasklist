@@ -47,6 +47,10 @@ class TasklistController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'content' => 'required',
+        ]);
+
         $message = new Task;
         $message->content = $request->content;
         $message->save();
@@ -93,6 +97,11 @@ class TasklistController extends Controller
      */
     public function update(Request $request, $id)
     {
+        
+        $this->validate($request, [
+            'content' => 'required',
+        ]);
+
         $message = Task::find($id);
         $message->content = $request->content;
         $message->save();

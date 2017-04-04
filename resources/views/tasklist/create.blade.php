@@ -3,7 +3,7 @@
 @section('content')
 
     <h1>タスクリスト新規作成ページ</h1>
-
+    
     {!! Form::model($viewpass, ['route' => 'tasklist.store']) !!}
 
         {!! Form::label('content', '内容:') !!}
